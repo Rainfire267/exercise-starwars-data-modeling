@@ -15,14 +15,15 @@ class User(Base):
     email = Column(String(250), unique=True)
     password = Column(String(10), nullable=False)
     loggin = Column(String(20))
-    user = Column(Integer, ForeignKey('user.id'))
+    #user = Column(Integer, ForeignKey('user.id'))
+    user = relationship(User)
 
 class Favorites(Base):
     __tablename__ = 'favorites'
     id = Column(Integer, primary_key=True)
     name = Column(String(50))
     user_id = Column(Integer, ForeignKey('person.id'))
-    user = relationship(User)
+    
 
 class Characters(Base):
     __tablename__ = 'characters'
