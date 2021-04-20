@@ -11,13 +11,21 @@ Base = declarative_base()
 class User(Base):
     __tablename__ = 'user'
     id = Column(Integer, primary_key=True)
+<<<<<<< HEAD
     user_name = Column(String(250), nullable=False)
     email = Column(String(250), nullable=False)
     password = Column(String(250), nullable=False)
+=======
+    user_name = Column(String(50))
+    email = Column(String(250), unique=True)
+    password = Column(String(10), nullable=False)
+    loggin = Column(String(20))
+>>>>>>> 9620197a16395b592df3a8338b031cbef342fa06
 
 class Planets(Base):
     __tablename__ = 'planets'
     id = Column(Integer, primary_key=True)
+<<<<<<< HEAD
     name = Column(String(250), nullable=False)
     terrain = Column(String(250), nullable=False)
     climate = Column(String(250), nullable=False)
@@ -25,6 +33,11 @@ class Planets(Base):
     orbital_period = Column(Integer, nullable=False)
     rotation_period = Column(Integer, nullable=False)
     diameter = Column(Integer, nullable=False)
+=======
+    name = Column(String(50))
+    user_id = Column(Integer, ForeignKey('person.id'))
+    favorites = relationship(User)
+>>>>>>> 9620197a16395b592df3a8338b031cbef342fa06
 
 class Characters(Base):
     __tablename__ = 'characters'
